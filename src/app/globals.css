@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0D1625;
+  --foreground: #F8FAFC;
+  --color-midnight-dark: #0D1625;
+  --color-midnight-base: #1E2A40;
+  --color-midnight-light: #2D3E5D;
+  --color-amber-base: #E6AA5B;
+  --color-amber-light: #FFD39B;
+  --color-amber-dark: #C48E44;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-midnight-dark: var(--color-midnight-dark);
+  --color-midnight-base: var(--color-midnight-base);
+  --color-midnight-light: var(--color-midnight-light);
+  --color-amber-base: var(--color-amber-base);
+  --color-amber-light: var(--color-amber-light);
+  --color-amber-dark: var(--color-amber-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: radial-gradient(circle at top, var(--color-midnight-base) 0%, var(--color-midnight-dark) 100%);
+  background-attachment: fixed;
+  color: var(--color-foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-midnight-base/80 backdrop-blur-xl border border-midnight-light/50 shadow-2xl rounded-2xl;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(50%); }
+  100% { transform: translateY(-100%); }
 }
