@@ -110,6 +110,10 @@ export default function Home() {
           fetchItems(); // refresh after modal close
         }} 
       />
+
+      <footer className="mt-16 text-center text-gray-500 text-sm">
+        <p>&copy; {new Date().getFullYear()} Microbiology Lab Inventory. All rights reserved.</p>
+      </footer>
     </main>
   );
 }
